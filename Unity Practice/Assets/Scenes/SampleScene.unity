@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -383,13 +384,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.060204543, y: 0.88890827, z: -0.12237556, w: -0.43731192}
-  m_LocalPosition: {x: 7.1206417, y: 3.142642, z: 5.887576}
+  m_LocalRotation: {x: 0.13684617, y: -0.039045118, z: 0.05529237, w: 0.98827696}
+  m_LocalPosition: {x: 0, y: 4, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.950001, y: -3.7000003, z: 5.886}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c3d17811a445b49bc6e3270e470f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1983957977}
+  followDistance: 5
+  cameraFollowSpeed: 8
 --- !u!1 &1061984543
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,8 +448,8 @@ GameObject:
   - component: {fileID: 1983957980}
   - component: {fileID: 1983957979}
   - component: {fileID: 1983957978}
-  - component: {fileID: 1983957982}
   - component: {fileID: 1983957983}
+  - component: {fileID: 1983957982}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -473,7 +489,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 00aa4476f8d281c4ead32c8cd63b760d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -544,4 +560,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68e1d5990f4a1749b38d3d5d13221e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 0.03, y: 0.03, z: 0}
+  speed: {x: 10, y: 0, z: 10}
