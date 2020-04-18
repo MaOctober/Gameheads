@@ -15,7 +15,7 @@ public class Follow : MonoBehaviour
 
       	Vector3 followVector = transform.forward * -followDistance;
 
-        transform.position = targetposition + followVector; 
+        transform.position = targetPosition + followVector; 
 
     }
 
