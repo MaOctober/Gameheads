@@ -7,6 +7,7 @@ public class Follow : MonoBehaviour
 		public GameObject target; 
 		public float followDistance;
 		public float cameraFollowSpeed = 0.1f;
+	
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+   
       Vector3 targetPosition = target.transform.position;  
 
       Vector3 followVector = transform.forward * -followDistance;
@@ -30,5 +32,7 @@ public class Follow : MonoBehaviour
 
       transform.position = Vector3.Lerp(transform.position, cameraTargetPosition,
        cameraFollowSpeed * Time.deltaTime);
+
+     
     }
 }

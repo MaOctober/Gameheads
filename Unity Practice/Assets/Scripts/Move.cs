@@ -5,6 +5,7 @@ using UnityEngine;
 public class Move : MonoBehaviour
  {
  	public Vector3 speed; 
+    public Vector3 target = new Vector3(5.0f, 0.0f, 0.0f);
 
  	void Start()
  	{
@@ -14,13 +15,15 @@ public class Move : MonoBehaviour
   
     void Update()
     {
+
     	Vector3 currentSpeed = Vector3.zero;
 
     	if (Input.GetKey(KeyCode.A))
     	{
+            transform.RotateAround(target, Vector3.up, 30 * Time.deltaTime);
 
-    		currentSpeed.x = -speed.x; // current speed.x = currentSpeed.x * -1.0f 
-
+    		//currentSpeed.x = -speed.x; // current speed.x = currentSpeed.x * -1.0f 
+            
     	}
     	if (Input.GetKey(KeyCode.D))
     	{
@@ -41,7 +44,8 @@ public class Move : MonoBehaviour
 
     	}
         //transform.Translate(Input.GetAxis("Horizontal")*Time.deltaTime, Input.GetAxis("Vertical")*Time.deltaTime, 0f);
-        	gameObject.transform.Translate(currentSpeed * Time.deltaTime);
+            gameObject.transform.Translate(currentSpeed * Time.deltaTime);
+            //transform.RotateAround(target, Vector3.up, 30 * Time.deltaTime);
      
         }
 
