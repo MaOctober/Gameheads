@@ -8,9 +8,8 @@ public class Move : MonoBehaviour
     
     //Amount of degrees per second to turn
     public float turnSpeed;
-    public float jumpforce = 1.0f; 
-
-    private bool isJumping = false;
+    public float jumpforce = 1.0f;  
+    public float distToGround = 0.5f;
     private Rigidbody rb; 
 
     // Start is called before the first frame update
@@ -19,6 +18,7 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    }
     void Update()
     {
         
@@ -26,7 +26,7 @@ public class Move : MonoBehaviour
     private void FixedUpdate()
     {
 
-float currentSpeed = 0.0f;
+        float currentSpeed = 0.0f;
         float currentTurnAmount = 0.0f;
 
         if (Input.GetKey(KeyCode.A))
@@ -51,14 +51,20 @@ float currentSpeed = 0.0f;
         gameObject.transform.Rotate(Vector3.up, currentTurnAmount * Time.deltaTime);
         rb.AddForce(transform.forward * currentSpeed * Time.deltaTime, ForceMode.Impulse);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        (isGrounded());
+        if (Input.GetKeyDown(KeyCode.Space) 
         {
             
             rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
-            isJumping = true;
+           
         }
 
         rb.angularVelocity = Vector3.zero;
+
+        function isGrounded(): boolean {
+              return Physics.Raycast (transform.position,-Vector3.up, distToGround + 0.1);
+              rigidbody.velocity.y = jumpspeed;
+
     }
 
     
