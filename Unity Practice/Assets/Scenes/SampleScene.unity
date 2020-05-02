@@ -675,3 +675,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 15, y: 0, z: 10}
   turnSpeed: 180
+  jumpforce: 7
