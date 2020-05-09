@@ -16,8 +16,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	currentLife -= Time.deltaTime;
-    	if (currentLife <= 0)
+    	lifeSpan -= Time.deltaTime;
+    	if (lifeSpan <= 0.0f)
     	{
         //when lifeSpan 3 seconds has past delte me
         //Hint: Time.deltaTime use to count how many seconds has past 
