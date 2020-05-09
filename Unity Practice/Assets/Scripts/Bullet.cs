@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
         //when lifeSpan 3 seconds has past delte me
         //Hint: Time.deltaTime use to count how many seconds has past 
 
-         Destory(gameObject);
+         Destroy(gameObject);
+
+        }
     }
 }
