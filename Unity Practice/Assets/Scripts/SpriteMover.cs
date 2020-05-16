@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class SpriteMover : MonoBehaviour
 {
-    public float speed = 5;
+     public float speed = 5;
     private Rigidbody2D rb;
-    private float distanceToGround = 0.0f;
-    private int jumpCount = 0;
-    public float jumpForce = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        distanceToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
     // Update is called once per frame
@@ -28,23 +24,19 @@ public class SpriteMover : MonoBehaviour
         {
             currentSpeed += speed;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
-        {
 
         rb.AddForce(new Vector2(currentSpeed * Time.deltaTime, 0.0f), ForceMode2D.Impulse);
-        }
-         bool IsGrounded()
-        {
-        return Physics.Raycast(transform.position, Vector2.down, distanceToGround + 0.1f);
-//        
-         }
-       
+        
         bool isGrounded = IsGrounded();
 
         if (isGrounded)
         {
             jumpCount = 0;
+        }
 
-     }
-}
-    
+        if (Input.GetKey(KeyCode.Space) && (isGrounded || jumpCount < 2))
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpCount = jumpCount + 1;
+    }
+}  
