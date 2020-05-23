@@ -5,24 +5,18 @@ using TMPro;
 
 public class PickUp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private float coin = 0;
 
 
+    public TextMeshProUGUI textCoins;
+
+
 
     private void OnTriggerEnter2D(Collider2D other){
-    	if (other.gameObject.CompareTag("Coin")){
+    	if(other.gameObject.CompareTag("Coin")){
+    		coin ++;
+    		textCoins.text = coin.ToString()
 
     		Destroy(other.gameObject);
     	}
