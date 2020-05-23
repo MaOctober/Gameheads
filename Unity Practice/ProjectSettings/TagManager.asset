@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Capsule Player
   - CapsulePlayer
+  - Coin
   layers:
   - Default
   - TransparentFX
