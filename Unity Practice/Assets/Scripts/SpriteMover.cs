@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class SpriteMover : MonoBehaviour
 {
-     public float speed = 5;
+    //Variables exposed to Unity Inspector
+    public float speed = 5;
     public float jumpSpeed = 2.0f;
-    public Slider healthbar;
 
     //Local variables that I don't expose to the Unity inspector
     private Rigidbody2D rb;
     private float distanceToGround = 0.0f;
     private bool isJumping = false;
     private LayerMask mask;
+    private PlayerData data;
 
     // Start is called before the first frame update
     void Start()
     {
-    	healthbar.value = 1.0f;
         //Get the Player layer and then change the mask to every layer but the player
         int maskValue = LayerMask.GetMask("Player");
         mask = ~maskValue;
@@ -26,6 +28,8 @@ public class SpriteMover : MonoBehaviour
         isJumping = false;
         rb = GetComponent<Rigidbody2D>();
         distanceToGround = GetComponent<CircleCollider2D>().radius + Mathf.Epsilon;
+
+        data = GetComponent<PlayerData>();
     }
 
     bool IsGrounded()
@@ -40,10 +44,9 @@ public class SpriteMover : MonoBehaviour
 
     private void Update()
     {
-    
-
+       
         //If I hit space key and I'm grounded I'm jumping
-        if(Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
         {
             isJumping = true;
         }
@@ -52,7 +55,8 @@ public class SpriteMover : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-       
+        
+
         float currentSpeed = 0.0f;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -61,10 +65,6 @@ public class SpriteMover : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             currentSpeed += speed;
-        }
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-        	healthbar.value -= 0.1f;
         }
 
         rb.AddForce(new Vector2(currentSpeed * Time.deltaTime, 0.0f), ForceMode2D.Impulse);
