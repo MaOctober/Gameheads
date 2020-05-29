@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PickUp : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
-
-   bool pickedUp = false;
+   
+    public float obstacleDamage = 0.3f;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !pickedUp)
+        if (other.gameObject.CompareTag("Player"))
         {
             PlayerData data = other.gameObject.GetComponent<PlayerData>();
-            data.ChangeScore();
-            pickedUp = true;
+            data.HitObstacle(obstacleDamage);
         }
     }
 }

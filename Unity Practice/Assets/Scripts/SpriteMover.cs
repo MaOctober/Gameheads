@@ -40,6 +40,8 @@ public class SpriteMover : MonoBehaviour
 
     private void Update()
     {
+    
+
         //If I hit space key and I'm grounded I'm jumping
         if(Input.GetKeyUp(KeyCode.Space) && IsGrounded())
         {
@@ -50,6 +52,7 @@ public class SpriteMover : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+       
         float currentSpeed = 0.0f;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
